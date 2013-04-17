@@ -18,6 +18,12 @@ $(document).ready(function() {
 		});
 	});
 
+	var resizeTimeout;
+	$(window).on('resize', function() {
+		clearTimeout(resizeTimeout);
+		resizeTimeout = setTimeout(drawGraph, 200);
+	});
+
 	function fetchFeels() {
 		$.get('/feels', function(data) {
 			window.feels = data;
