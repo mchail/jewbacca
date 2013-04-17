@@ -1,5 +1,28 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to jquery
+	h1 How's that jew's back doing?
+	div
+		ul.numbers
+			- var numbers = []
+			- numbers.push({pain: 0, description: "I could fight a bear. I'd win. I'm not going to do this, because I have nothing to prove to you, but I could totally do it."})
+			- numbers.push({pain: 1, description: "I have undergone experimental back surgery. Dr. Falcon (formerly Captain) punched me in the spine, and I'm damn near healed up."})
+			- numbers.push({pain: 2, description: "If my spine were a walking stick, it would be a good fucking walking stick."})
+			- numbers.push({pain: 3, description: "I feel like I'm at the point in the recovery montage where the hot nurse looks at my chart and can't believe how fast I'm improving. She should have believed in me from the beginning. I might have let her come with me when I blow this town."})
+			- numbers.push({pain: 4, description: "\"The kid grimaced in pain as he straightened from his crouch. The calamity knew it was beaten, but that didn't mean cleanup was gonna be easy. He set his jaw, slung his warhammer over his shoulder, and set about the ugly business of the day.\""})
+			- numbers.push({pain: 5, description: "Not sure if this is the best I've felt in days, or the most pain medication I've taken in days..."})
+			- numbers.push({pain: 6, description: "I feel like history was just rewritten and Daft Punk's entire Discovery album was replaced with an extended version of 'Too Long'. Interstella 5555 takes place in a Dimpus Burger. There is one camera angle: a closeup of Rod Farva's mouth, as you watch him slurp Literacola through a straw in slow motion."})
+			- numbers.push({pain: 7, description: "Look, Mario couldn't have expected to ram his head against a brick block thousands of times without fucking up his back. This may take some time, I'm afraid."})
+			- numbers.push({pain: 8, description: "I'm going to find whoever is responsible for this unbearable pain. When I'm done with you, you will have zero bitcoins, your computer will boot straight to Gentoo, and your phone's lockscreen will spout scripture every minute of the day."})
+			- numbers.push({pain: 9, description: "I just need to focus on all those people I will be able to look down on as soon as I'm able to stand. This extra inch is going to make all the difference (haha that's what she said). Man, I should plan a trip to Japan."})
+			- numbers.push({pain: 10, description: "More meds. More meds. More meds. I am a Golden God."})
+			- numbers.forEach(function(number) {
+				li('data-pain'=number.pain, 'data-description'=number.description)= number.pain
+			- })
+	div.clear
+	p.directions Please select your current level of discomfort, where 0 = "It's dangerous to go alone, take this!" and 10 = "Your princess is in another castle."
+	div.graph-container
+		div.graph
+
+	script(src="/javascripts/flotr2.min.js")
+	script(src="/javascripts/client.js")
