@@ -1,6 +1,6 @@
 var express = require('express')
   , routes = require('./routes')
-  , user = require('./routes/user')
+  , feel = require('./routes/feel')
   , http = require('http')
   , path = require('path')
   , mongoose = require('mongoose');
@@ -24,7 +24,8 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+app.get('/feels', feel.list);
+app.post('/feels', feel.record);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
@@ -36,20 +37,3 @@ var mongoUri = process.env.MONGOLAB_URI ||
   'mongodb://localhost/jewbacca_development'; 
 
 mongoose.connect(mongoUri);
-var feelSchema = mongoose.Schema({
-	date: {
-		type: Date,
-		default: Date.now
-	},
-	pain: Number
-})
-var Feel = mongoose.model('Feel', feelSchema);
-// mongo.Db.connect(mongoUri, function (err, db) {
-//   db.collection('mydocs', function(er, collection) {
-//     collection.insert({'mykey': 'myvalue'}, {safe: true}, function(er,rs) {
-//     });
-//   });
-// });
-
-var feel = new Feel({pain: 5});
-feel.save();
